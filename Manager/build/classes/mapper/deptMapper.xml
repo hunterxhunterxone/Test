@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzz.dao.DeptDao">
+	<select id="queryAll" parameterType="int" resultMap="resultDept">
+		SELECT 
+			Id,
+			name
+		FROM 
+			depts
+	</select>
+	<resultMap type="com.zzz.entity.Dept" id="resultDept">
+		<id property="DId" column="Id"/>
+		<result property="deptName" column="name"/>
+	</resultMap>
+	<select id="queryByName" parameterType="String" resultMap="resultDept">
+		SELECT 
+			Id,
+			name
+		FROM 
+			depts
+		WHERE 
+			NAME=#{deptName}
+	</select>
+</mapper>

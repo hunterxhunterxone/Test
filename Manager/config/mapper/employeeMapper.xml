@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzz.dao.EmployeeDao">
+	<select id="queryAll" parameterType="int" resultMap="resultEmployee">
+		SELECT 
+			Id,
+			last_name,
+			email,
+			birth,
+			createTime,
+			dept_id 
+		FROM 
+			employees
+	</select>
+	<resultMap type="com.zzz.entity.Employee" id="resultEmployee">
+		<id property="id" column="Id"/>
+		<result property="lastName" column="last_name"/>
+		<result property="email" column="email"/>
+		<result property="birth" column="birth"/>
+		<result property="createTime" column="createTime"/>
+		<association property="dept" column="dept_id" select="getDept"></association>
+	</resultMap>
+	<select id="getDept" parameterType="int" resultType="com.zzz.entity.Dept">
+		SELECT ID DId,name deptName from depts WHERE ID=#{id}
+	</select>
+	<insert id="insertEmployee" parameterType="com.zzz.entity.Employee">
+		insert into employees(last_name,email,birth,createTime,dept_id) values(#{lastName},#{email},#{birth},now(),#{dept.DId})
+	</insert>
+	<update id="updateEmployee" parameterType="com.zzz.entity.Employee">
+		update employees set last_name=#{lastName},email=#{email},birth=#{birth},dept_id=#{dept.id} where Id=#{id}
+	</update>
+	<delete id="deleteEmployee" parameterType="Integer">
+		delete from employees where Id=#{id}
+	</delete>
+	<select id="findById" parameterType="Integer" resultMap="resultEmployee">
+		SELECT 
+			Id,
+			last_name,
+			email,
+			birth,
+			createTime,
+			dept_id 
+		FROM 
+			employees
+		WHERE 
+			Id=#{id}
+	</select>
+	<select id="findByDeptId" parameterType="Integer" resultMap="resultEmployee">
+		SELECT 
+			Id,
+			last_name,
+			email,
+			birth,
+			createTime,
+			dept_id 
+		FROM 
+			employees
+		WHERE 
+			dept_id=#{id}
+	</select>
+</mapper>
