@@ -8,4 +8,5 @@ import com.zzz.entity.User;
 
 public interface UserDao {
 	List<User> findUserList();
+	User selectUserByKey(User user);
 }
