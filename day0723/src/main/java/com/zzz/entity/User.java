@@ -9,6 +9,7 @@ public class User {
 	private String password;
 	private Integer cid;
 	private Integer did;
+	private String salt;
 	private String createTime;
 	private String lastTime;
 	private int statc;
@@ -23,6 +24,17 @@ public class User {
 		this.email = email;
 		this.name = name;
 		this.password = password;
+		this.createTime = createTime;
+		this.lastTime = lastTime;
+		this.statc=0;
+	}
+	
+	public User(String email, String name, String password, String salt, String createTime, String lastTime) {
+		super();
+		this.email = email;
+		this.name = name;
+		this.password = password;
+		this.salt = salt;
 		this.createTime = createTime;
 		this.lastTime = lastTime;
 		this.statc=0;
@@ -137,13 +149,25 @@ public class User {
 	public void setUserImg(String userImg) {
 		this.userImg = userImg;
 	}
+	
+	public String getSalt() {
+		return salt;
+	}
 
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+	public String getCredentialsSalt() {
+		return this.email+this.salt;
+	}
 	@Override
 	public String toString() {
 		return "User [Id=" + Id + ", email=" + email + ", name=" + name + ", password=" + password + ", cid=" + cid
-				+ ", did=" + did + ", createTime=" + createTime + ", lastTime=" + lastTime + ", statc=" + statc
-				+ ", user_img=" + userImg + "]";
+				+ ", did=" + did + ", salt=" + salt + ", createTime=" + createTime + ", lastTime=" + lastTime
+				+ ", statc=" + statc + ", userImg=" + userImg + "]";
 	}
+
+	
 	
 	
 	

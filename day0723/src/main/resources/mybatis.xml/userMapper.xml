@@ -8,16 +8,17 @@
 		<result column="password" property="password"/>
 		<result column="cid" property="cid"/>
 		<result column="did" property="did"/>
+		<result column="salt" property="salt"/>
 		<result column="create_time" property="createTime"/>
 		<result column="last_time" property="lastTime"/>
 		<result column="statc" property="statc"/>
 		<result column="user_img" property="userImg"/>
 	</resultMap>
 	<sql id="Base_Column_List">
-		id,email,name,password,cid,did,create_time,last_time,statc,user_img
+		id,email,name,password,cid,did,salt,create_time,last_time,statc,user_img
 	</sql>
 	<select id="findUserList" resultMap="UserResult">
-	 SELECT <include refid="Base_Column_List" /> FROM USERS
+	 SELECT * FROM USERS
 	</select>
 	<select id="selectUserByKey" resultMap="UserResult" parameterType="java.lang.String">
 		SELECT  <include refid="Base_Column_List" /> FROM USERS WHERE 1=1
@@ -28,4 +29,5 @@
 			and email=#{email}
 		</if>
 	</select>
+	
 </mapper>

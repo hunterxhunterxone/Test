@@ -12,7 +12,7 @@ import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-@MapperScan(basePackages="com.zzz.dao")
+
 @SpringBootConfiguration
 public class SessionFactoryConfiguration {
 	@Value("${mybatis.mapper-locations}")

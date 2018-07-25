@@ -10,7 +10,7 @@ import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-@MapperScan(basePackages="com.zzz.dao")
+
 @SpringBootConfiguration
 public class DataSourceConfiguration {
 	@Value("${spring.datasource.driver-class-name}")

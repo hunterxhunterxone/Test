@@ -2,6 +2,7 @@ package com.zzz.service.impl;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> findUserList() {
 		// TODO Auto-generated method stub
+		System.out.println("随便打");
+		System.out.println("userDao的地址"+userDao.getClass());
+		System.out.println("随便打完");
 		return userDao.findUserList();
 	}
 	@Override

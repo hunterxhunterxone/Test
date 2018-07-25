@@ -1,5 +1,9 @@
 package com.zzz;
 
+
+
+
+import org.apache.log4j.Logger;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -14,11 +18,13 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @EnableAutoConfiguration(exclude= {DataSourceAutoConfiguration.class})
 @SpringBootApplication
-@ComponentScan("com.zzz")
-@MapperScan("com.zzz.dao")
+@ComponentScan(basePackages="com.zzz")
+@MapperScan(basePackages="com.zzz.dao")
 @ServletComponentScan(basePackages="com.zzz.listener")
 public class Application {
+	private static Logger logger = Logger.getLogger(Application.class);
 	public static void main(String[] args) {
+		logger.info("start..");
 		SpringApplication.run(Application.class, args);
 	}
 }
