@@ -1,6 +1,10 @@
 package com.zzz.entity;
 
+import org.apache.shiro.crypto.hash.SimpleHash;
+import org.apache.shiro.crypto.hash.SimpleHashRequest;
+
 import com.zzz.util.MD5;
+import com.zzz.util.UUIDUtils;
 
 public class User {
 	private Integer Id;
@@ -98,7 +102,7 @@ public class User {
 	}
 
 	public void setPassword(String password) {
-		this.password = MD5.md5(password);
+		this.password = new SimpleHash("MD5",password,this.salt,1024).toHex();
 	}
 
 	public Integer getCid() {
@@ -137,8 +141,8 @@ public class User {
 		return statc;
 	}
 
-	public void setStatc(int statc) {
-		this.statc = statc;
+	public void setStatc() {
+		this.statc = 0;
 	}
 
 	
@@ -154,21 +158,17 @@ public class User {
 		return salt;
 	}
 
-	public void setSalt(String salt) {
-		this.salt = salt;
+	public void setSalt() {
+		this.salt = UUIDUtils.getUUID();
 	}
 	public String getCredentialsSalt() {
-		return this.email+this.salt;
+//		return this.email+this.salt;
+		return this.email;
 	}
 	@Override
 	public String toString() {
 		return "User [Id=" + Id + ", email=" + email + ", name=" + name + ", password=" + password + ", cid=" + cid
 				+ ", did=" + did + ", salt=" + salt + ", createTime=" + createTime + ", lastTime=" + lastTime
 				+ ", statc=" + statc + ", userImg=" + userImg + "]";
-	}
-
-	
-	
-	
-	
+	}	
 }

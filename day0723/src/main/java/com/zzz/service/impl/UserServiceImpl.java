@@ -17,9 +17,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> findUserList() {
 		// TODO Auto-generated method stub
-		System.out.println("随便打");
-		System.out.println("userDao的地址"+userDao.getClass());
-		System.out.println("随便打完");
 		return userDao.findUserList();
 	}
 	@Override
@@ -27,5 +24,9 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userDao.selectUserByKey(user);
 	}
-
+	@Override
+	public int insertTourist(User user) {
+		// TODO Auto-generated method stub
+		return userDao.insertSelective(user);
+	}
 }

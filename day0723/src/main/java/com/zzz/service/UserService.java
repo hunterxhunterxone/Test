@@ -7,4 +7,5 @@ import com.zzz.entity.User;
 public interface UserService {
 	List<User> findUserList();
 	User selectUserByKey(User user);
+	int insertTourist(User user);
 }
