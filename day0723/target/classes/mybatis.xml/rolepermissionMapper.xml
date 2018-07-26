@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzz.dao.RolePermissionDao">
+	<resultMap id="RolePermissionResult" type="com.zzz.entity.RolePermission">
+		<result column="rid" property="roleid"/>
+		<result column="pid" property="permissionid"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		rid,pid
+	</sql>
+	<select id="selectRolePermissionByKey" parameterType="Integer" resultMap="RolePermissionResult">
+		SELECT <include refid="Base_Column_List" /> FROM ROLE_PERMISSION 
+		WHERE RID=#{id}
+	</select> 
+</mapper>
