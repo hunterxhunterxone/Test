@@ -4,11 +4,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.filter.authc.LogoutFilter;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
-import org.mybatis.spring.annotation.MapperScan;
+
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -37,13 +38,16 @@ public class ShiroConfiguration {
 		System.out.println("地址:ShiroConfiguration.shiroFilter()");
 		ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 		shiroFilterFactoryBean.setSecurityManager(securityManager);
+		// 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
+        shiroFilterFactoryBean.setLoginUrl("/login");
 		LogoutFilter logoutFilter = new LogoutFilter();
 		logoutFilter.setRedirectUrl("/login");
 		Map<String, String> filterChainDefinitionManager = new LinkedHashMap<String, String>();
 		filterChainDefinitionManager.put("/logout", "logout");
-		filterChainDefinitionManager.put("/login*", "anon");// 用户为ROLE_USER
-		filterChainDefinitionManager.put("/logto*", "anon");
-		filterChainDefinitionManager.put("/**", "authc");
+//		filterChainDefinitionManager.put("/user/admin/*", "roles[admin]");// 用户为ROLE_USER
+//		filterChainDefinitionManager.put("/user/*", "");
+		filterChainDefinitionManager.put("/hihi/*", "anon");
+		filterChainDefinitionManager.put("/*", "authc");
 		shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionManager);
 
 			shiroFilterFactoryBean.setSuccessUrl("/index");

@@ -1,3 +1,4 @@
+
 package com.zzz.config.shiro;
 
 
@@ -20,12 +21,17 @@ import org.springframework.stereotype.Component;
 
 import com.zzz.entity.User;
 import com.zzz.entity.UserRole;
+import com.zzz.service.RoleService;
+import com.zzz.service.UserRoleService;
 import com.zzz.service.UserService;
 @Component
 public class MyShiroRealm extends AuthorizingRealm {
 	@Autowired
 	private UserService userService;
-	
+	@Autowired
+	private UserRoleService userRoleService;
+	@Autowired
+	private RoleService RoleService;
 
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
@@ -52,9 +58,11 @@ public class MyShiroRealm extends AuthorizingRealm {
 		System.out.println("密码:"+new String(((UsernamePasswordToken)token).getPassword()));
 		//获取用户名
 		String userName = (String)token.getPrincipal();
+		System.out.println(userName);
 		User user = new User();
 		user.setEmail(userName);
 		user = userService.selectUserByKey(user);
+		System.out.println(user);
 		if(user==null) {
 			throw new UnknownAccountException("账号不存在");//没找到账号
 		}

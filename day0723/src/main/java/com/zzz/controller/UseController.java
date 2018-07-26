@@ -16,7 +16,7 @@ import com.zzz.service.UserService;
 
 @Controller
 @EnableAutoConfiguration
-@RequestMapping("/hihi")
+@RequestMapping("/user")
 public class UseController {
 	@Autowired
 	private UserService userService;
@@ -29,5 +29,15 @@ public class UseController {
 			System.out.println(user);
 		}
 		return "user/userList";
+	}
+	
+	@RequestMapping("/touristPage")
+	public String touristPage(ModelMap map) {
+		return "tourist/banner";
+	}
+	
+	@RequestMapping("/index")
+	public String index(ModelMap map) {
+		return "tourist/index";
 	}
 }
