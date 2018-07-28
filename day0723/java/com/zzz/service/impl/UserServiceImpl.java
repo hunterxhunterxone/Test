@@ -29,4 +29,9 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userDao.insertSelective(user);
 	}
+	@Override
+	public int updateByPrimaryKeySelective(User record) {
+		// TODO Auto-generated method stub
+		return userDao.updateByPrimaryKeySelective(record);
+	}
 }

@@ -1,9 +1,9 @@
 package com.zzz.entity;
 
-import org.apache.shiro.crypto.hash.SimpleHash;
-import org.apache.shiro.crypto.hash.SimpleHashRequest;
+import java.util.Date;
 
-import com.zzz.util.MD5;
+import org.apache.shiro.crypto.hash.SimpleHash;
+
 import com.zzz.util.UUIDUtils;
 
 public class User {
@@ -14,8 +14,8 @@ public class User {
 	private Integer cid;
 	private Integer did;
 	private String salt;
-	private String createTime;
-	private String lastTime;
+	private Date createTime;
+	private Date lastTime;
 	private int statc;
 	private String userImg;
 	public User() {
@@ -23,7 +23,7 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public User( String email, String name, String password, String createTime, String lastTime) {
+	public User( String email, String name, String password, Date createTime, Date lastTime) {
 		super();
 		this.email = email;
 		this.name = name;
@@ -33,7 +33,7 @@ public class User {
 		this.statc=0;
 	}
 	
-	public User(String email, String name, String password, String salt, String createTime, String lastTime) {
+	public User(String email, String name, String password, String salt, Date createTime, Date lastTime) {
 		super();
 		this.email = email;
 		this.name = name;
@@ -44,8 +44,8 @@ public class User {
 		this.statc=0;
 	}
 
-	public User(String email, String name, String password, Integer cid, Integer did, String createTime,
-			String lastTime, String userImg) {
+	public User(String email, String name, String password, Integer cid, Integer did, Date createTime,
+			Date lastTime, String userImg) {
 		super();
 		this.email = email;
 		this.name = name;
@@ -58,8 +58,8 @@ public class User {
 		this.userImg = userImg;
 	}
 
-	public User(Integer id, String email, String name, String password, Integer cid, Integer did, String createTime,
-			String lastTime, String userImg) {
+	public User(Integer id, String email, String name, String password, Integer cid, Integer did, Date createTime,
+			Date lastTime, String userImg) {
 		super();
 		Id = id;
 		this.email = email;
@@ -102,7 +102,7 @@ public class User {
 	}
 
 	public void setPassword(String password) {
-		this.password = new SimpleHash("MD5",password,this.salt,1024).toHex();
+		this.password = password;
 	}
 
 	public Integer getCid() {
@@ -121,19 +121,19 @@ public class User {
 		this.did = did;
 	}
 
-	public String getCreateTime() {
+	public Date getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime(String createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
-	public String getLastTime() {
+	public Date getLastTime() {
 		return lastTime;
 	}
 
-	public void setLastTime(String lastTime) {
+	public void setLastTime(Date lastTime) {
 		this.lastTime = lastTime;
 	}
 
@@ -141,7 +141,7 @@ public class User {
 		return statc;
 	}
 
-	public void setStatc() {
+	public void setStatc(int statc) {
 		this.statc = 0;
 	}
 
@@ -158,8 +158,8 @@ public class User {
 		return salt;
 	}
 
-	public void setSalt() {
-		this.salt = UUIDUtils.getUUID();
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 	public String getCredentialsSalt() {
 //		return this.email+this.salt;

@@ -1,5 +1,7 @@
 package com.zzz.dao;
 
+import java.util.Set;
+
 import com.zzz.entity.Permissions;
 
 public interface PermissionsDao {
@@ -50,4 +52,5 @@ public interface PermissionsDao {
      * @mbg.generated
      */
     int updateByPrimaryKey(Permissions record);
+    Set<Permissions> selectByRId(Integer rid);
 }

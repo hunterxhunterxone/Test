@@ -1,5 +1,7 @@
 package com.zzz.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,11 @@ public class RoleServiceImpl implements RoleService {
 	public Role selectByKey(Integer id) {
 		// TODO Auto-generated method stub
 		return roleDao.selectByPrimaryKey(id);
+	}
+	@Override
+	public List<Role> selectByUserEmail(String email) {
+		// TODO Auto-generated method stub
+		return roleDao.selectByUserEmail(email);
 	}
 
 }

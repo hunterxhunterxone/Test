@@ -1,5 +1,7 @@
 package com.zzz.service.impl;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,11 @@ public class PermissionServiceImpl implements PermissionService {
 	public Permissions selectByKey(Integer id) {
 		// TODO Auto-generated method stub
 		return permissionDao.selectByPrimaryKey(id);
+	}
+	@Override
+	public Set<Permissions> selectByRId(Integer rid) {
+		// TODO Auto-generated method stub
+		return permissionDao.selectByRId(rid);
 	}
 
 }

@@ -31,6 +31,11 @@
     from permissions
     where Id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByRId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  	select p.id,p.available,p.name,p.permission,p.parentId,p.parentIds,p.url 
+  	from permissions p,role_permission rp,roles r 
+  	where p.Id=rp.pid and rp.rid=r.id and r.id=#{rid}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
       WARNING - @mbg.generated
@@ -146,4 +151,5 @@
       url = #{url,jdbcType=VARCHAR}
     where Id = #{id,jdbcType=INTEGER}
   </update>
+  
 </mapper>

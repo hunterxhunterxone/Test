@@ -6,5 +6,4 @@ $(function(){
 		interval:5000,
 		wrap:true
 	});
-	
 })

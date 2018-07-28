@@ -28,10 +28,10 @@
     from roles
     where Id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectRoleByUserEmail" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByUserEmail" parameterType="java.lang.String" resultMap="BaseResultMap">
   	 select r.id,r.available,r.name,r.description 
     	from roles r,user_role ur,users u 
-    	where r.Id = ur.rid and ur.uid=u.Id and u.Id = #{id}
+    	where r.Id = ur.rid and ur.uid=u.Id and u.email = #{email}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--

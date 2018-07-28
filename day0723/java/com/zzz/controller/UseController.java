@@ -20,7 +20,11 @@ import com.zzz.service.UserService;
 public class UseController {
 	@Autowired
 	private UserService userService;
-	
+	/**
+	 * 
+	 * @param map
+	 * @return
+	 */
 	@RequestMapping("/findUser")
 	public String findUser(ModelMap map) {
 		List<User> list = userService.findUserList();
@@ -29,15 +33,5 @@ public class UseController {
 			System.out.println(user);
 		}
 		return "user/userList";
-	}
-	
-	@RequestMapping("/touristPage")
-	public String touristPage(ModelMap map) {
-		return "tourist/banner";
-	}
-	
-	@RequestMapping("/index")
-	public String index(ModelMap map) {
-		return "tourist/index";
 	}
 }

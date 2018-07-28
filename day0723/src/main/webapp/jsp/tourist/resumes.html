@@ -1,6 +1,6 @@
 <html  xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8"/>
 <title>填写简历</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>
@@ -15,32 +15,26 @@
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">姓名</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="年龄" name="name"/>
+      <input type="text" class="form-control" id="inputEmail3" placeholder="姓名" name="name"/>
     </div>
   </div>
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">年龄</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="inputEmail3" placeholder="age" name="age"/>
+      <input type="number" class="form-control" id="inputEmail3" placeholder="年龄" name="age"/>
     </div>
   </div>
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">性别</label>
-    	<select class="form-control" style="width: 100px">
-  			<option>男</option>
-  			<option>女</option>
+    	<select class="form-control" style="width: 100px" name="sex">
+  			<option name="sex">男</option>
+  			<option name="sex">女</option>
 		</select>
-  </div>
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">电话号码</label>
-    <div class="col-sm-10">
-      <input type="number" class="form-control" id="inputPassword3" placeholder="电话号码" name="phone"/>
-    </div>
   </div>
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">身份证号码</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputPassword3" placeholder="身份证号码" name="userNumber"/>
+      <input type="text" class="form-control" id="inputPassword3" placeholder="身份证号码" name="usernumber"/>
     </div>
   </div>
    <div class="form-group">
@@ -57,13 +51,13 @@
   </div>
    <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">学历</label>
-    	<select class="form-control" name="school-info"  style="width: 200px">
-    		<option>博士</option>
-    		<option>研究生</option>
-  			<option>本科</option>
-  			<option>专科</option>
-  			<option>中学</option>
-  			<option>小学</option>
+    	<select class="form-control" name="studentInfo"  style="width: 200px">
+    		<option name="studentInfo">博士</option>
+    		<option name="studentInfo">研究生</option>
+  			<option name="studentInfo">本科</option>
+  			<option name="studentInfo">专科</option>
+  			<option name="studentInfo">中学</option>
+  			<option name="studentInfo">小学</option>
 		</select>
   </div>
    <div class="form-group">
@@ -81,7 +75,7 @@
    <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">擅长语言</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputPassword3" placeholder="语言(没有则填无)" name="language"/>
+      <input type="text" class="form-control" id="inputPassword3" placeholder="语言(没有则填无)" name="languageUse"/>
     </div>
   </div>
   <div class="form-group">

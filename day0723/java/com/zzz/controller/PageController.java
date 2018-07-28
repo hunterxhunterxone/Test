@@ -17,4 +17,12 @@ public class PageController {
 	public String touristBanner(ModelMap map) {
 		return "tourist/banner";
 	}
+	@RequestMapping("/resume")
+	public String touristResume(ModelMap map) {
+		return "tourist/resumes";
+	}
+	@RequestMapping("/index")
+	public String touristIndex(ModelMap map) {
+		return "tourist/index";
+	}
 }

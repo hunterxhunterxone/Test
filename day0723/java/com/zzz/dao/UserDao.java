@@ -14,5 +14,7 @@ public interface UserDao {
      * @mbg.generated
      */
     int insertSelective(User user);
+    
+    int updateByPrimaryKeySelective(User record);
 
 }
